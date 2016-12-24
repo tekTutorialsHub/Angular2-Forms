@@ -1,0 +1,50 @@
+<div class="container">
+
+    <h1 class="heading"><strong>Contact </strong> Form</h1>
+
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" >
+
+        <div class="form-group">
+            <label for="firstname">First Name</label> 
+            <input type="text"  class="form-control"  name="firstname" ngModel>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last Name</label> 
+            <input type="text" class="form-control"  name="lastname" ngModel>
+        </div>
+
+
+        <div ngModelGroup="address">
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control"   name="city" ngModel >
+            </div>
+
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" class="form-control"  name="street" ngModel >
+            </div>
+
+            <div class="form-group">
+                <label for="pincode">Pin Code</label>
+                <input type="text" class="form-control"   name="pincode" ngModel>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
+
+    <pre>{{contactForm.value | json }} </pre>
+
+</div>
+
+
+
+
+

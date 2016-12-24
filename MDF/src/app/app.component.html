@@ -1,0 +1,48 @@
+<div class="container">
+
+    <h1 class="heading"><strong>Contact </strong> Form</h1>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        
+        <div class="form-group">
+            <label for="firstname">First Name</label> 
+            <input type="text"  class="form-control" name="firstname" formControlName="firstname">
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last Name</label> 
+            <input type="text" class="form-control" name="lastname" formControlName="lastname">
+        </div>
+
+
+        <div formGroupName="address"> 
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control"  name="city" formControlName="city" >
+            </div>
+
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" name="street" formControlName="street" >
+            </div>
+
+            <div class="form-group">
+                <label for="pincode">Pin Code</label>
+                <input type="text" class="form-control" name="pincode" formControlName="pincode">
+            </div>
+
+        </div> 
+
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
+
+</div>
+
+
+
+
+

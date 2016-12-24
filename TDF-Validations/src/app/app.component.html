@@ -1,0 +1,70 @@
+<div class="container">
+
+    <h1 class="heading"><strong>Contact </strong> Form</h1>
+
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+
+        <div class="form-group">
+            <label for="firstname">First Name</label> 
+            <input type="text"  class="form-control"  name="firstname" ngModel #firstname="ngModel" required minlength="10">
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last Name</label> 
+            <input type="text" class="form-control"  name="lastname" ngModel #lastname="ngModel">
+        </div>
+
+
+        <div ngModelGroup="address">
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control"   name="city" ngModel #city="ngModel">
+            </div>
+
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" class="form-control"  name="street" ngModel #street="ngModel" >
+            </div>
+
+            <div class="form-group">
+                <label for="pincode">Pin Code</label>
+                <input type="text" class="form-control"   name="pincode" ngModel  #pincode="ngModel" >
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+        </div>
+
+
+        <div *ngIf="!firstname?.valid && (firstname?.dirty ||firstname?.touched)" class="alert alert-danger">
+            <div [hidden]="!firstname.errors.required">
+                First Name is required
+            </div>
+            <div [hidden]="!firstname.errors.minlength">
+                First Name Minimum Length is {{firstname.errors.minlength?.requiredLength}}
+            </div>
+        </div>
+
+        <!--         
+        <div *ngIf="!myForm.controls.firstname?.valid && (myForm.controls.firstname?.dirty || myForm.controls.firstname?.touched)" class="alert alert-danger">
+            <div [hidden]="!myForm.controls.firstname.errors.required">
+                First Name is required
+            </div>
+        </div>-->
+
+
+        <div *ngIf="formErrors.name" class="alert alert-danger">
+            {{ formErrors.name }}
+        </div>
+
+            
+        {{ myForm.controls.firstname?.errors?.minlength | json }}
+
+    </form>
+
+    <pre>{{contactForm.value | json }} </pre>
+
+</div>
