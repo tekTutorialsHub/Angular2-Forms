@@ -6,57 +6,29 @@ import { FormGroup, FormControl,FormBuilder,Validators } from '@angular/forms';
   templateUrl: './app.component.html',
 })
 
-/* With Form Builder without group  ok*/
+
+/* Without Form Builder , Without Group */
+
 /*export class AppComponent 
 {
 
-contactForm: FormGroup;
-
-constructor (private fb: FormBuilder) {
-
-  this.contactForm = this.fb.group({
-      firstname: [],
-      lastname: [],
-      address: this.fb.group({
-        street: [],
-        pincode: []
-      })
-    });
-
- }
-
-onSubmit() {
-     console.log(this.customerForm.value);
-  }
-}*/
-
-
-/* Without Form Builder , without Group */
-/*export class AppComponent 
-{
-
-  customerForm = new FormGroup({
+  contactForm = new FormGroup({
        firstname: new FormControl(),
        lastname: new FormControl(),
       })
 
 
 onSubmit() {
-     console.log(this.customerForm.value);
+     console.log(this.contactForm.value);
   }
 }
 */
 
-/*Validators */
-/*customerForm = new FormGroup({
-  firstname: new FormControl('Rahul', Validators.required),
-  lastname: new FormControl({value: 'Dravid', disabled: true}),
-  street: new FormControl('',[ Validators.required,Validators.minLength(10)]),
-  pincode: new FormControl('', Validators.compose([ Validators.required,Validators.minLength(10)]))
-})*/
 
 
-/* Without Form Builder , with Group */
+/* Without Form Builder , With Group */
+
+/*
 export class AppComponent 
 {
 
@@ -74,10 +46,42 @@ onSubmit() {
      console.log(this.contactForm.value);
   }
 }
+*/
 
 
 
-/* With Form Builder without group  ok*/
+
+
+
+/* With Form Builder with group*/
+export class AppComponent 
+{
+
+contactForm: FormGroup;
+
+constructor (private fb: FormBuilder) {
+
+  this.contactForm = this.fb.group({
+      firstname: [],
+      lastname: [],
+      address: this.fb.group({
+        city:[],
+        street: [],
+        pincode: []
+      })
+    });
+
+ }
+
+onSubmit() {
+     console.log(this.contactForm.value);
+  }
+}
+
+
+
+/* With Form Builder without group /
+
 /*export class AppComponent 
 {
 
@@ -95,7 +99,26 @@ constructor (private fb: FormBuilder) {
 onSubmit() {
      console.log(this.contactForm.value);
   }
-}*/
+}
+*/
+
+
+
+
+/* Adding Validators */
+/*
+contactForm = new FormGroup({
+  firstname: new FormControl('Rahul', Validators.required),
+  lastname: new FormControl({value: 'Dravid', disabled: true}),
+  address: this.fb.group({
+      city: new FormControl('',[ Validators.required]),
+      street: new FormControl('',[ Validators.required]),
+      pincode: new FormControl('', Validators.compose([ Validators.required,Validators.minLength(10)]))
+  })
+})
+*/
+
+
 
 
 
