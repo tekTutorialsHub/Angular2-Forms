@@ -2,7 +2,7 @@
 
     <h1 class="heading"><strong>Contact </strong> Form</h1>
 
-    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" novalidate>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
         
         <div class="form-group">
             <label for="firstname">First Name</label> 
@@ -29,7 +29,7 @@
 
             <div class="form-group">
                 <label for="city">City</label>
-                <input type="text" class="form-control"  name="city" [(ngModel)]="contact.address.city" >
+                <input type="text" class="form-control"  name="city" ngModel >
                 <div *ngIf="formErrors.city" class="alert alert-danger">
                     {{ formErrors.city }}
                 </div>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="form-group">
-            <button type="submit" [disabled]="!myForm.valid">Submit</button>
+            <button type="submit" [disabled]="!contactForm.valid">Submit</button>
         </div>
 
 

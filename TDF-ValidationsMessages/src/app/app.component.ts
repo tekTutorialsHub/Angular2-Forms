@@ -13,7 +13,7 @@ export class AppComponent implements AfterViewChecked
   contactForm: NgForm;
   
 
-  @ViewChild('myForm') currentForm: NgForm;
+  @ViewChild('contactForm') currentForm: NgForm;
 
   formErrors = { };
 
@@ -68,8 +68,8 @@ export class AppComponent implements AfterViewChecked
      }
  }
   
-  onSubmit(myform) {
-     console.log(myform);
+  onSubmit(contactForm) {
+     console.log(contactForm);
   }
 }
 

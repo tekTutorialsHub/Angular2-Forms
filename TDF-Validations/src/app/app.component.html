@@ -48,20 +48,8 @@
             </div>
         </div>
 
-        <!--         
-        <div *ngIf="!myForm.controls.firstname?.valid && (myForm.controls.firstname?.dirty || myForm.controls.firstname?.touched)" class="alert alert-danger">
-            <div [hidden]="!myForm.controls.firstname.errors.required">
-                First Name is required
-            </div>
-        </div>-->
-
-
-        <div *ngIf="formErrors.name" class="alert alert-danger">
-            {{ formErrors.name }}
-        </div>
-
             
-        {{ myForm.controls.firstname?.errors?.minlength | json }}
+        {{ contactForm.controls.firstname?.errors?.minlength | json }}
 
     </form>
 
