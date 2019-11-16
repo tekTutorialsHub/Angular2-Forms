@@ -1,5 +1,5 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormControl,FormArray, FormBuilder } from '@angular/forms'
+import { Component } from '@angular/core';
+  import { FormGroup, FormArray, FormBuilder } from '@angular/forms'
 
 
 @Component({
@@ -9,7 +9,7 @@ import { FormGroup, FormControl,FormArray, FormBuilder } from '@angular/forms'
 })
 export class AppComponent  {
   
-  title = 'FormArray Example in Angular Reactive forms';
+  title = 'Nested FormArray Example Add Form Fields Dynamically';
 
   empForm:FormGroup;
 

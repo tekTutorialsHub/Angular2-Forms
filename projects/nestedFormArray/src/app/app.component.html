@@ -1,38 +1,44 @@
+<h1>{{title}}</h1>
+
 <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
 
-  <div formArrayName="employees" *ngFor="let employee of employees().controls; let empIndex=index">
+  <div formArrayName="employees">
 
-    <div [formGroupName]="empIndex" style="border: 1px solid blue; padding: 10px; width: 600px; margin: 5px;">
-      {{empIndex}}
-      First Name :
-      <input type="text" formControlName="firstName">
-      Last Name:
-      <input type="text" formControlName="lastName">
+    <div *ngFor="let employee of employees().controls; let empIndex=index">
 
-      <button (click)="removeEmployee(empIndex)">Remove</button>
+      <div [formGroupName]="empIndex" style="border: 1px solid blue; padding: 10px; width: 600px; margin: 5px;">
+        {{empIndex}}
+        First Name :
+        <input type="text" formControlName="firstName">
+        Last Name:
+        <input type="text" formControlName="lastName">
 
-
-      <div formArrayName="skills">
-
-        <div *ngFor="let skill of employeeSkills(empIndex).controls; let skillIndex=index">
-          
+        <button (click)="removeEmployee(empIndex)">Remove</button>
 
 
-          <div [formGroupName]="skillIndex">
-            {{skillIndex}}
-            Skill :
-            <input type="text" formControlName="skill">
-            Exp:
-            <input type="text" formControlName="exp">
+        <div formArrayName="skills">
 
-            <button (click)="removeEmployeeSkill(empIndex,skillIndex)">Remove</button>
+          <div *ngFor="let skill of employeeSkills(empIndex).controls; let skillIndex=index">
 
-          </div> 
 
+
+            <div [formGroupName]="skillIndex">
+              {{skillIndex}}
+              Skill :
+              <input type="text" formControlName="skill">
+              Exp:
+              <input type="text" formControlName="exp">
+
+              <button (click)="removeEmployeeSkill(empIndex,skillIndex)">Remove</button>
+
+            </div>
+
+          </div>
+          <button type="button" (click)="addEmployeeSkill(empIndex)">Add Skill</button>
         </div>
-        <button type="button" (click)="addEmployeeSkill(empIndex)">Add Skill</button>
-      </div>
 
+
+      </div>
 
     </div>
   </div>
@@ -48,4 +54,4 @@
   <button type="button" (click)="addEmployee()">Add Employee</button>
 </p>
 
-{{this.appForm.value | json}}
+{{this.empForm.value | json}}
