@@ -1,0 +1,28 @@
+<h1>CheckBox in Template driven Forms</h1>
+
+<form #templateForm="ngForm" (ngSubmit)="onSubmit(templateForm)" novalidate>
+
+  <p>
+    <label for="isMarried">Married </label>
+    <input type="checkbox" id="isMarried" name="isMarried" [(ngModel)]="isMarried" required>
+  </p>
+
+  <button type="submit" [disabled]="!templateForm.valid">Submit</button>
+  <button type="button" (click)="setDefault()">Set Default</button>
+  <button type="button" (click)="reset()">Reset</button>
+
+
+  <h3>Form Status</h3>
+  <b>valid : </b>{{templateForm.valid}}
+  <b>invalid : </b>{{templateForm.invalid}}
+  <b>touched : </b>{{templateForm.touched}}
+  <b>untouched : </b>{{templateForm.untouched}}
+  <b>pristine : </b>{{templateForm.pristine}}
+  <b>dirty : </b>{{templateForm.dirty}}
+  <b>disabled : </b>{{templateForm.disabled}}
+  <b>enabled : </b>{{templateForm.enabled}}
+
+
+  <h3>Form Value</h3>
+  {{templateForm.value | json }}
+</form>

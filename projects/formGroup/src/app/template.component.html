@@ -1,0 +1,68 @@
+<h3>{{title}}</h3>
+
+<div style="float: left; width:50%;">
+  <form #templateForm="ngForm" (ngSubmit)="onSubmit(templateForm)">
+
+    <p>
+      <label for="firstname">First Name </label>
+      <input type="text" id="firstname" name="firstname" ngModel required>
+    </p>
+    <p>
+      <label for="lastname">Last Name </label>
+      <input type="text" id="lastname" name="lastname" ngModel>
+    </p>
+
+    <p>
+      <label for="email">Email </label>
+      <input type="text" id="email" name="email" ngModel>
+    </p>
+
+
+    <div ngModelGroup="address">
+
+      <p>
+        <label for="address">Address</label>
+        <input type="text" class="form-control" name="address" ngModel>
+      </p>
+
+      <p>
+        <label for="city">City</label>
+        <input type="text" class="form-control" name="city" ngModel>
+      </p>
+
+      <p>
+        <label for="state">State</label>
+        <input type="text" class="form-control" name="state" ngModel>
+      </p>
+    </div>
+
+
+
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+    <div>
+    </div>
+
+  </form>
+</div>
+
+
+
+<div style="float: right; width:50%;">
+  <h3>Form Status</h3>
+  <b>status : </b>{{templateForm.status}}
+  <b>valid : </b>{{templateForm.valid}}
+  <b>invalid : </b>{{templateForm.invalid}}
+  <b>touched : </b>{{templateForm.touched}}
+  <b>untouched : </b>{{templateForm.untouched}}
+  <b>pristine : </b>{{templateForm.pristine}}
+  <b>dirty : </b>{{templateForm.dirty}}
+  <b>disabled : </b>{{templateForm.disabled}}
+  <b>enabled : </b>{{templateForm.enabled}}
+
+
+  <h3>Form Value</h3>
+  {{templateForm.value | json }}
+
+</div>

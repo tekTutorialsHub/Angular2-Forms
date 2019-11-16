@@ -1,0 +1,76 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+
+  <p>
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" name="firstname" #fname="ngModel" ngModel>
+
+  </p>
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" name="lastname" ngModel>
+  </p>
+
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" name="email" ngModel>
+  </p>
+
+
+  <p>
+    <label for="gender">Geneder </label>
+    <input type="radio" value="male" id="gender" name="gender" ngModel> Male
+    <input type="radio" value="female" id="gender" name="gender" ngModel> Female
+  </p>
+
+  <p>
+    <label for="isMarried">Married </label>
+    <input type="checkbox" id="isMarried" name="isMarried" ngModel>
+  </p>
+
+  <p>
+    <label for="country">country </label>
+    <select id="country" name="country" ngModel>
+      <option [ngValue]="c.id" *ngFor="let c of countryList">
+        {{c.name}}
+      </option>
+    </select>
+  </p>
+
+  <!-- <div ngModelGroup="address">
+
+    <p>
+      <label for="city">City</label>
+      <input type="text" id="city" name="city" ngModel>
+    </p>
+
+    <p>
+      <label for="street">Street</label>
+      <input type="text" id="street" name="street" ngModel>
+    </p>
+    <p>
+      <label for="pincode">Pin Code</label>
+      <input type="text" id="pincode" name="pincode" ngModel>
+    </p>
+
+  </div> -->
+
+  <p>
+    <button type="submit">Submit</button>
+  </p>
+
+
+
+
+</form>
+
+
+<!-- <b>Value</b> : {{fname.value}}
+<b>valid</b> : {{fname.valid}}
+<b>invalid</b> : {{fname.invalid}}
+<b>touched</b> : {{fname.touched}}
+
+<pre>Value : {{contactForm.value | json }} </pre>
+
+<p><b>Valid</b> : {{contactForm.valid}}
+<b>Touched</b> : {{contactForm.touched  }}
+<b>Submitted</b> : {{contactForm.submitted  }} </p> -->

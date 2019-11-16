@@ -1,0 +1,63 @@
+<h3>{{title}}</h3>
+
+<div style="float: left; width:50%;">
+
+  <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <p>
+      <label for="firstname">First Name </label>
+      <input type="text" id="firstname" name="firstname" formControlName="firstname">
+      <label for="lastname">Last Name </label>
+      <input type="text" id="lastname" name="lastname" formControlName="lastname">
+    </p>
+
+    <div formGroupName="address">
+
+      <p>
+        <label for="city">City</label>
+        <input type="text" class="form-control" name="city" formControlName="city">
+        <label for="street">Street</label>
+        <input type="text" class="form-control" name="street" formControlName="street">
+        <label for="pincode">Pin Code</label>
+        <input type="text" class="form-control" name="pincode" formControlName="pincode">
+      </p>
+
+    </div>
+
+
+    <button>Submit</button>
+    <div>
+      <button type="button" (click)="setValue()">SetValue</button>
+      <button type="button" (click)="setAddress()">Address</button>
+      <button type="button" (click)="setFirstname()">First Name</button>
+    </div>
+    <div>
+      <button type="button" (click)="withoutOnlySelf()">Without Only Self</button>
+      <button type="button" (click)="withOnlySelf()">With Only Self</button>
+    </div>
+    <div>
+      <button type="button" (click)="withouEmitEvent()">Without EmitEvent</button>
+      <button type="button" (click)="withEmitEvent()">With EmitEvent</button>
+    </div>
+
+  </form>
+</div>
+
+<div style="float: right; width:50%;">
+
+  <h3>Form Status</h3>
+  <b>status : </b>{{reactiveForm.status}}
+  <b>valid : </b>{{reactiveForm.valid}}
+  <b>invalid : </b>{{reactiveForm.invalid}}
+  <b>touched : </b>{{reactiveForm.touched}}
+  <b>untouched : </b>{{reactiveForm.untouched}}
+  <b>pristine : </b>{{reactiveForm.pristine}}
+  <b>dirty : </b>{{reactiveForm.dirty}}
+  <b>disabled : </b>{{reactiveForm.disabled}}
+  <b>enabled : </b>{{reactiveForm.enabled}}
+
+
+  <h3>Form Value</h3>
+  {{reactiveForm.value |json}}
+
+</div>

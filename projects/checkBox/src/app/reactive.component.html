@@ -1,0 +1,31 @@
+<h1>CheckBox in Reactive Forms</h1>
+
+<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" novalidate>
+
+
+  <p>
+    <label for="isMarried">Married </label>
+    <input type="checkbox" id="isMarried" name="isMarried" formControlName="isMarried" >
+  </p>
+
+
+  <button>Submit</button>
+  <button type="button" (click)="setVale()">Set Default</button>
+  <button type="button" (click)="reset()">Reset</button>
+
+</form>
+
+
+<h3>Form Status</h3>
+<b>valid : </b>{{reactiveForm.valid}}
+<b>invalid : </b>{{reactiveForm.invalid}}
+<b>touched : </b>{{reactiveForm.touched}}
+<b>untouched : </b>{{reactiveForm.untouched}}
+<b>pristine : </b>{{reactiveForm.pristine}}
+<b>dirty : </b>{{reactiveForm.dirty}}
+<b>disabled : </b>{{reactiveForm.disabled}}
+<b>enabled : </b>{{reactiveForm.enabled}}
+
+
+<h3>Form Value</h3>
+{{reactiveForm.value | json }}

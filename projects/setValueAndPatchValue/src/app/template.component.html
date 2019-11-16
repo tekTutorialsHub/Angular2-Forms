@@ -1,0 +1,98 @@
+<h3>{{title}}</h3>
+
+<div style="float: left; width:50%;">
+  <form #templateForm="ngForm" (ngSubmit)="onSubmit(templateForm)">
+
+    <p>
+      <label for="firstname">First Name </label>
+      <input type="text" id="firstname" name="firstname" #fname="ngModel" ngModel>
+
+    </p>
+    <p>
+      <label for="lastname">Last Name </label>
+      <input type="text" id="lastname" name="lastname" ngModel>
+    </p>
+
+    <p>
+      <label for="email">Email </label>
+      <input type="text" id="email" name="email" ngModel>
+    </p>
+
+
+    <p>
+      <label for="gender">Geneder </label>
+      <input type="radio" value="male" id="gender" name="gender" ngModel> Male
+      <input type="radio" value="female" id="gender" name="gender" ngModel> Female
+    </p>
+
+    <p>
+      <label for="isMarried">Married </label>
+      <input type="checkbox" id="isMarried" name="isMarried" ngModel>
+    </p>
+
+    <p>
+      <label for="country">country </label>
+      <select id="country" name="country" ngModel>
+        <option [ngValue]="c.id" *ngFor="let c of countryList">
+          {{c.name}}
+        </option>
+      </select>
+    </p>
+
+    <div ngModelGroup="address">
+
+      <p>
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" ngModel>
+      </p>
+
+      <p>
+        <label for="street">Street</label>
+        <input type="text" id="street" name="street" ngModel>
+      </p>
+      <p>
+        <label for="pincode">Pin Code</label>
+        <input type="text" id="pincode" name="pincode" ngModel>
+      </p>
+
+    </div>
+
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+
+    <div>
+      <button type="button" (click)="setDefault()">Default</button>
+    </div>
+    <div>
+      <button type="button" (click)="setValue()">SetValue</button>
+      <button type="button" (click)="setAddress()">Address</button>
+      <button type="button" (click)="setCountry()">Country</button>
+    </div>
+    <div>
+      <button type="button" (click)="patchName()">Name</button>
+      <button type="button" (click)="patchAddress()">Address</button>
+      <button type="button" (click)="reset()">Reset</button>
+    </div>
+
+
+  </form>
+</div>
+
+<div style="float: right; width:50%;">
+  <h3>Form Status</h3>
+  <b>status : </b>{{templateForm.status}}
+  <b>valid : </b>{{templateForm.valid}}
+  <b>invalid : </b>{{templateForm.invalid}}
+  <b>touched : </b>{{templateForm.touched}}
+  <b>untouched : </b>{{templateForm.untouched}}
+  <b>pristine : </b>{{templateForm.pristine}}
+  <b>dirty : </b>{{templateForm.dirty}}
+  <b>disabled : </b>{{templateForm.disabled}}
+  <b>enabled : </b>{{templateForm.enabled}}
+
+
+  <h3>Form Value</h3>
+  {{templateForm.value | json }}
+
+</div>>

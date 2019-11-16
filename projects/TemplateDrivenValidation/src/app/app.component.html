@@ -1,0 +1,81 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+
+  <p>
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" name="firstname" required minlength="10" #firstname="ngModel"
+      [(ngModel)]="contact.firstname">
+  </p>
+  <div *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)" class="error">
+    <div *ngIf="firstname.errors.required">
+      First Name is required
+    </div>
+    <div *ngIf="firstname.errors.minlength">
+      First Name Minimum Length is {{firstname.errors.minlength?.requiredLength}}
+    </div>
+  </div>
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" name="lastname" required maxlength="15" #lastname="ngModel" 
+            pattern="^[a-zA-Z]+$"  [(ngModel)]="contact.lastname">
+  </p>
+  <div *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)" class="error">
+    <div *ngIf="lastname.errors.required">
+      Last Name is required
+    </div>
+    <div *ngIf="lastname.errors.maxlength">
+      Last Name Minimum Length is {{lastname.errors.maxlength?.requiredLength}}
+    </div>
+    <div *ngIf="lastname.errors.pattern">
+      Only characters are allowed
+    </div>
+  </div>
+
+
+
+  <p>
+    <label for="email">email </label>
+    <input type="text" id="email" name="email" required email #email="ngModel" [(ngModel)]="contact.email">
+  </p>
+  <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+    <div *ngIf="email.errors.required">
+      Email is required
+    </div>
+    <div *ngIf="email.errors.email">
+      Invalid Email Address
+    </div>
+  </div>
+
+  <p>
+    <label for="gender">Geneder </label>
+    <input type="radio" value="male" id="gender" name="gender" #gender="ngModel" required [(ngModel)]="contact.gender">
+    Male
+    <input type="radio" value="female" id="gender" name="gender" #gender="ngModel" required
+      [(ngModel)]="contact.gender"> Female
+  </p>
+  <div *ngIf="!gender?.valid && (gender?.dirty || gender?.touched)" class="error">
+    <div *ngIf="gender.errors.required">
+      Gender is required
+    </div>
+  </div>
+
+
+  <p>
+    <label for="isToc">Accept TOC</label>
+    <input type="checkbox" id="isToc" name="isToc" required #isToc="ngModel" [(ngModel)]="contact.isToc">
+  </p>
+  <div *ngIf="!isToc?.valid && (isToc?.dirty || isToc?.touched)" class="error">
+    <div *ngIf="isToc.errors.required">
+      Please accept the TOC
+    </div>
+  </div>
+
+  <p>
+    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+  </p>
+
+
+  <p>{{contactForm.valid}} </p>
+
+
+</form>

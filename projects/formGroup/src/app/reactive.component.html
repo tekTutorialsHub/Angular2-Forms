@@ -1,0 +1,158 @@
+<h3>{{title}}</h3>
+
+<div style="float: left; width:50%;">
+
+  <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <p>
+      <label for="firstname">First Name </label>
+      <input type="text" id="firstname" name="firstname" formControlName="firstname">
+    </p>
+
+    <p>
+      <label for="lastname">Last Name </label>
+      <input type="text" id="lastname" name="lastname" formControlName="lastname">
+    </p>
+
+    <p>
+      <label for="email">Email </label>
+      <input type="text" id="email" name="email" formControlName="email">
+    </p>
+
+    <div formGroupName="address">
+
+      <p>
+        <label for="address">Address</label>
+        <input type="text" class="form-control" name="address" formControlName="address">
+      </p>
+
+      <p>
+        <label for="city">City</label>
+        <input type="text" class="form-control" name="city" formControlName="city">
+      </p>
+
+      <p>
+        <label for="state">State</label>
+        <input type="text" class="form-control" name="state" formControlName="state">
+      </p>
+
+    </div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+
+  <div>
+    <button (click)="addControl()">Add Control</button>
+    <button (click)="registerControl()">Register Control</button>
+    <button (click)="removeControl()">Remove Control</button>
+    <button (click)="setControl()">Set Control</button>
+    <button (click)="containsControl()">contains</button>
+  </div>
+  <div>
+    <button (click)="setDefault()">Set Default</button>
+    <button (click)="setValue()">Set Value</button>
+    <button (click)="setAddress()">Set Address</button>
+    <button (click)="patchValue()">PatchValue</button>
+  </div>
+
+  <div>
+    <button (click)="markFormAsTouched()">Mark Form as Touched</button>
+
+    <button (click)="markCityAsTouched()">City As Touched</button>
+    <button (click)="markAddressAsTouched()">Address As Touched</button>
+    <button (click)="markAllAddressTouched()">Mark All Address as Touched</button>
+
+    <button (click)="markCityAsUnTouched()">City As Untouched</button>
+    <button (click)="markAddressAsUnTouched()">Address As Untouched</button>
+
+  </div>
+
+  <div>
+
+    <button (click)="markFormAsDirty()">Mark Form as Dirty</button>
+    <button (click)="markFormAsPristine()">Mark Form as Pristine</button>
+
+    <button (click)="markCityAsDirty()">City As Dirty</button>
+    <button (click)="markAddressAsDirty()">Address As Dirty</button>
+
+    <button (click)="markCityAsPristine()">City As Pristine</button>
+    <button (click)="markAddressAsPristine()">Address As Pristine</button>
+
+  </div>
+
+  <div>
+      <button (click)="markFormAsPendng()">Mark Form as Pending</button>
+      <button (click)="markAddressAsPendng()">Mark Adddress as Pending</button>
+  </div>
+
+
+  <div>
+    <button (click)="disableFirstName()">Disable First Name</button>
+    <button (click)="enableFirstName()">Enable First Name</button>
+    <button (click)="disableAll()">Disable All</button>
+    <button (click)="enableAll()">Enable All</button>
+    <button (click)="disableAddress()">Disable Address</button>
+    <button (click)="disableCity()">DisableCity</button>
+  </div>
+
+
+  <div>
+      <button (click)="markFormAsPendng()">Mark Form as Pending</button>
+      <button (click)="markAddressAsPendng()">Mark Adddress as Pending</button>
+  </div>
+
+</div>
+
+<div style="float: right; width:50%;">
+
+  <h3>Form Status</h3>
+  <b>status : </b>{{reactiveForm.status}}
+  <b>valid : </b>{{reactiveForm.valid}}
+  <b>invalid : </b>{{reactiveForm.invalid}}
+  <b>touched : </b>{{reactiveForm.touched}}
+  <b>untouched : </b>{{reactiveForm.untouched}}
+  <b>pristine : </b>{{reactiveForm.pristine}}
+  <b>dirty : </b>{{reactiveForm.dirty}}
+  <b>disabled : </b>{{reactiveForm.disabled}}
+  <b>enabled : </b>{{reactiveForm.enabled}}
+
+
+  <h3>Firstname Status</h3>
+  <b>status : </b>{{reactiveForm.get("firstname").status}}
+  <b>valid : </b>{{reactiveForm.get("firstname").valid}}
+  <b>invalid : </b>{{reactiveForm.get("firstname").invalid}}
+  <b>touched : </b>{{reactiveForm.get("firstname").touched}}
+  <b>untouched : </b>{{reactiveForm.get("firstname").untouched}}
+  <b>pristine : </b>{{reactiveForm.get("firstname").pristine}}
+  <b>dirty : </b>{{reactiveForm.get("firstname").dirty}}
+  <b>disabled : </b>{{reactiveForm.get("firstname").disabled}}
+  <b>enabled : </b>{{reactiveForm.get("firstname").enabled}}
+
+
+  <h3>Address Status</h3>
+  <b>status : </b>{{reactiveForm.get("address").status}}
+  <b>valid : </b>{{reactiveForm.get("address").valid}}
+  <b>invalid : </b>{{reactiveForm.get("address").invalid}}
+  <b>touched : </b>{{reactiveForm.get("address").touched}}
+  <b>untouched : </b>{{reactiveForm.get("address").untouched}}
+  <b>pristine : </b>{{reactiveForm.get("address").pristine}}
+  <b>dirty : </b>{{reactiveForm.get("address").dirty}}
+  <b>disabled : </b>{{reactiveForm.get("address").disabled}}
+  <b>enabled : </b>{{reactiveForm.get("address").enabled}}
+
+  <h3>City Status</h3>
+  <b>status : </b>{{reactiveForm.get("address").get("city").status}}
+  <b>valid : </b>{{reactiveForm.get("address").get("city").valid}}
+  <b>invalid : </b>{{reactiveForm.get("address").get("city").invalid}}
+  <b>touched : </b>{{reactiveForm.get("address").get("city").touched}}
+  <b>untouched : </b>{{reactiveForm.get("address").get("city").untouched}}
+  <b>pristine : </b>{{reactiveForm.get("address").get("city").pristine}}
+  <b>dirty : </b>{{reactiveForm.get("address").get("city").dirty}}
+  <b>disabled : </b>{{reactiveForm.get("address").get("city").disabled}}
+  <b>enabled : </b>{{reactiveForm.get("address").get("city").enabled}}
+
+  <h3>Form Value</h3>
+  {{reactiveForm.value |json}}
+
+</div>

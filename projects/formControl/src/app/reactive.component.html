@@ -1,0 +1,52 @@
+<h3>{{title}}</h3>
+
+<div style="float: left; width:50%;">
+
+  <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <p>
+      <label for="firstname">First Name </label>
+      <input type="text" id="firstname" name="firstname" formControlName="firstname">
+    </p>
+
+    <p>
+      <label for="lastname">Last Name </label>
+      <input type="text" id="lastname" name="lastname" formControlName="lastname">
+    </p>
+
+    <p>
+      <label for="email">Email </label>
+      <input type="text" id="email" name="email" formControlName="email">
+    </p>
+
+    <button>Submit</button>
+    <div>
+      <button (click)="setEmail()">set Email</button>
+      <button (click)="clearValidation()">clearValidation</button>
+      <button (click)="setValidator()">setValidator</button>
+      <button (click)="getErrors()">getErrors</button>
+      <button (click)="setErrors()">setErrors</button>
+      <button (click)="reset()">reset</button>
+    </div>
+
+  </form>
+</div>
+
+<div style="float: right; width:50%;">
+
+  <h3>Firat Name Control Status</h3>
+  <b>status : </b>{{reactiveForm.get("firstname").status}}
+  <b>valid : </b>{{reactiveForm.get("firstname").valid}}
+  <b>invalid : </b>{{reactiveForm.get("firstname").invalid}}
+  <b>touched : </b>{{reactiveForm.get("firstname").touched}}
+  <b>untouched : </b>{{reactiveForm.get("firstname").untouched}}
+  <b>pristine : </b>{{reactiveForm.get("firstname").pristine}}
+  <b>dirty : </b>{{reactiveForm.get("firstname").dirty}}
+  <b>disabled : </b>{{reactiveForm.get("firstname").disabled}}
+  <b>enabled : </b>{{reactiveForm.get("firstname").enabled}}
+
+
+  <h3>Form Value</h3>
+  {{reactiveForm.value |json}}
+
+</div>

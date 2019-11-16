@@ -1,0 +1,68 @@
+<h3>{{title}}</h3>
+
+<div style="float: left; width:50%;">
+  <form #templateForm="ngForm" (ngSubmit)="onSubmit(templateForm)">
+
+    <p>
+      <label for="firstname">First Name </label>
+      <input type="text" id="firstname" name="firstname" #fname="ngModel" ngModel>
+
+    </p>
+    <p>
+      <label for="lastname">Last Name </label>
+      <input type="text" id="lastname" name="lastname" ngModel>
+    </p>
+
+    <div ngModelGroup="address">
+
+      <p>
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" ngModel>
+        <label for="street">Street</label>
+        <input type="text" id="street" name="street" ngModel>
+        <label for="pincode">Pin Code</label>
+        <input type="text" id="pincode" name="pincode" ngModel>
+      </p>
+
+    </div>
+
+    <button>Submit</button>
+
+  </form>
+  
+  <div>
+    <button type="button" (click)="setValue()">SetValue</button>
+    <button type="button" (click)="setAddress()">Address</button>
+    <button type="button" (click)="setFirstname()">First Name</button>
+  </div>
+  <div>
+    <button type="button" (click)="withoutOnlySelf()">Without Only Self</button>
+    <button type="button" (click)="withOnlySelf()">With Only Self</button>
+  </div>
+  <div>
+    <button type="button" (click)="withouEmitEvent()">Without EmitEvent</button>
+    <button type="button" (click)="withEmitEvent()">With EmitEvent</button>
+  </div>
+
+
+
+
+</div>
+
+<div style="float: right; width:50%;">
+  <h3>Form Status</h3>
+  <b>status : </b>{{templateForm.status}}
+  <b>valid : </b>{{templateForm.valid}}
+  <b>invalid : </b>{{templateForm.invalid}}
+  <b>touched : </b>{{templateForm.touched}}
+  <b>untouched : </b>{{templateForm.untouched}}
+  <b>pristine : </b>{{templateForm.pristine}}
+  <b>dirty : </b>{{templateForm.dirty}}
+  <b>disabled : </b>{{templateForm.disabled}}
+  <b>enabled : </b>{{templateForm.enabled}}
+
+
+  <h3>Form Value</h3>
+  {{templateForm.value | json }}
+
+</div>>
