@@ -1,27 +1,37 @@
-# Forms
+# Angular Forms
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve --project="projectName" for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Please visit for tutorials
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[Angular Forms](https://www.tektutorialshub.com/angular-2-tutorial/#angular-forms)
 
-## Build
+[Angular Forms Tutorial: Fundamental & Concepts](https://www.tektutorialshub.com/angular/angular-forms-fundamentals/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+[Template Driven Forms in Angular](https://www.tektutorialshub.com/angular/angular-template-driven-forms/)
 
-## Running unit tests
+[Set Value in Template Driven forms in Angular](https://www.tektutorialshub.com/angular/how-to-set-value-in-template-driven-forms-in-angular/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[Validation in Template Driven Forms](https://www.tektutorialshub.com/angular/template-driven-form-validation-in-angular/)
 
-## Running end-to-end tests
+[Reactive Forms in Angular](https://www.tektutorialshub.com/angular/angular-reactive-forms/)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+[Validations in Reactive Forms in Angular](https://www.tektutorialshub.com/angular/angular-reactive-forms-validation/)
 
-## Further help
+[FormBuilder in Reactive Forms](https://www.tektutorialshub.com/angular/angular-formbuilder-in-reactive-forms/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[SetValue & PatchValue in Angular](https://www.tektutorialshub.com/angular/setvalue-patchvalue-in-angular/)
+
+[StatusChanges in Angular Forms](https://www.tektutorialshub.com/angular/statuschanges-in-angular-forms/)
+
+[ValueChanges in Angular Forms](https://www.tektutorialshub.com/angular/valuechanges-in-angular-forms/)
+
+[FormControl](https://www.tektutorialshub.com/angular/formcontrol-in-angular/)
+
+[FormGroup](https://www.tektutorialshub.com/angular/formgroup-in-angular/)
+
+
